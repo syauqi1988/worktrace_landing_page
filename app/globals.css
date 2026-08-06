@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #14181F;
+}
+
+/* Torn / die-cut perforation divider between sections */
+.perforated {
+  position: relative;
+  height: 1px;
+}
+.perforated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to right,
+    #2B3340 0,
+    #2B3340 6px,
+    transparent 6px,
+    transparent 14px
+  );
+}
+
+/* Docket / paper card texture */
+.docket {
+  background-color: #F4EFE3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 20px 40px -20px rgba(0,0,0,0.6);
+}
+
+.hole {
+  background: #14181F;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #F5820A;
+  outline-offset: 2px;
+}
